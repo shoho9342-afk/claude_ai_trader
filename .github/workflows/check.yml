@@ -1,0 +1,23 @@
+name: Safe Project Check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check repository structure
+        run: |
+          echo "Oraz AI Trader repository is accessible."
+          echo "No trading, API calls, or order execution."
+          test -f README.md
